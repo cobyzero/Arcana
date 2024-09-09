@@ -1,0 +1,9 @@
+name: arcana
+
+packages:
+  - apps/**
+  - packages/**
+
+scripts:
+  analyze:
+    exec: dart analyze .

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/apps/arcana_app/melos_arcana_app.iml" filepath="$PROJECT_DIR$/apps/arcana_app/melos_arcana_app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/melos_arcana.iml" filepath="$PROJECT_DIR$/melos_arcana.iml" />
+    </modules>
+  </component>
+</project>

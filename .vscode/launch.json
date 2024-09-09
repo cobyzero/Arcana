@@ -1,0 +1,11 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Arcana App",
+        "request": "launch",
+        "type": "dart",
+        "program": "apps/arcana_app/lib/main.dart"
+      }
+    ]
+  }
