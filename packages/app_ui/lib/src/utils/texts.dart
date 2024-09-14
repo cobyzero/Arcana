@@ -1,6 +1,7 @@
+import 'package:app_ui/app_ui.dart';
 import 'package:app_ui/src/utils/palette.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart'; 
+import 'package:sizer/sizer.dart';
 
 class Texts extends StatelessWidget {
   final String text;
@@ -36,7 +37,7 @@ class Texts extends StatelessWidget {
     this.fontFamily,
   });
 
-  const Texts.heavy(
+  const Texts.regular(
     this.text, {
     super.key,
     this.height = 1,
@@ -51,7 +52,7 @@ class Texts extends StatelessWidget {
     this.letterSpacing,
     this.style,
     this.onTap,
-  }) : fontWeight = FontWeight.w800;
+  }) : fontWeight = FontWeight.normal;
   const Texts.medium(
     this.text, {
     super.key,
@@ -67,8 +68,8 @@ class Texts extends StatelessWidget {
     this.padding,
     this.style,
     this.onTap,
-  }) : fontWeight = FontWeight.w600;
-  const Texts.roman(
+  }) : fontWeight = FontWeight.w500;
+  const Texts.bold(
     this.text, {
     super.key,
     this.height = 1,
@@ -83,7 +84,7 @@ class Texts extends StatelessWidget {
     this.padding,
     this.style,
     this.onTap,
-  }) : fontWeight = FontWeight.w400;
+  }) : fontWeight = FontWeight.w700;
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +101,7 @@ class Texts extends StatelessWidget {
             height: height,
             fontWeight: fontWeight,
             letterSpacing: letterSpacing,
-            fontFamily: fontFamily,
+            fontFamily: FontFamily.sFProDisplay,
             decoration:
                 underline ? TextDecoration.underline : TextDecoration.none,
           ),
