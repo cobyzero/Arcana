@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class RegisterView extends StatelessWidget {
+  const RegisterView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,40 +23,27 @@ class LoginView extends StatelessWidget {
                 ),
               ).only(top: 2.h, bottom: 2.h),
               Texts.bold(
-                "Welcome back to Arcana",
+                "Welcome to Arcana",
               ).only(bottom: 1.h),
               Texts.regular(
-                "Sign in to continue",
+                "Let's make your account",
                 color: Palette.gray,
               ).only(bottom: 4.h),
               CustomInput(
                 prefixIcon: Icons.person_2_outlined,
+                hintText: "Name",
+              ).only(bottom: 2.h),
+              CustomInput(
+                prefixIcon: Icons.email_outlined,
                 hintText: "Your Email / Phone Number",
               ).only(bottom: 2.h),
               CustomInput(
                 prefixIcon: Icons.lock_outline,
                 hintText: "Password",
-              ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {},
-                  child: Texts.bold(
-                    "Forgot Password?",
-                    color: Palette.primary,
-                  ),
-                ),
-              ),
-              CheckboxListTile(
-                controlAffinity: ListTileControlAffinity.leading,
-                value: false,
-                contentPadding: EdgeInsets.zero,
-                onChanged: (value) {},
-                activeColor: Palette.primary,
-                title: Texts.regular(
-                  "Remember me",
-                  color: Palette.gray,
-                ),
+              ).only(bottom: 2.h),
+              CustomInput(
+                prefixIcon: Icons.lock_outline,
+                hintText: "Confirm Password",
               ).only(bottom: 2.h),
               CustomButton(
                 onPressed: () {},
@@ -95,13 +82,13 @@ class LoginView extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Don't have an account?"),
+                  Text("Already have an account?"),
                   TextButton(
                     onPressed: () {
-                      context.go("/register");
+                      context.go("/login");
                     },
                     child: Texts.bold(
-                      "Register",
+                      "Login",
                       color: Palette.primary,
                     ),
                   ),
