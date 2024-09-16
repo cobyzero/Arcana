@@ -103,7 +103,7 @@ class Texts extends StatelessWidget {
             letterSpacing: letterSpacing,
             fontFamily: FontFamily.sFProDisplay,
             decoration:
-                underline ? TextDecoration.underline : TextDecoration.none,
+                underline ? TextDecoration.lineThrough : TextDecoration.none,
           ),
           maxLines: maxLines,
           overflow: textOverflow,

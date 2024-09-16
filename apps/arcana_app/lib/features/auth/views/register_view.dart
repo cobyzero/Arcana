@@ -47,7 +47,10 @@ class RegisterView extends StatelessWidget {
               ).only(bottom: 2.h),
               CustomButton(
                 onPressed: () {},
-                text: "Login",
+                child: Texts.medium(
+                  "Register",
+                  color: Palette.white,
+                ),
               ).only(bottom: 4.h),
               Row(
                 children: [

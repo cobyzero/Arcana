@@ -59,8 +59,13 @@ class LoginView extends StatelessWidget {
                 ),
               ).only(bottom: 2.h),
               CustomButton(
-                onPressed: () {},
-                text: "Login",
+                onPressed: () {
+                  context.go("/home");
+                },
+                child: Texts.medium(
+                  "Login",
+                  color: Palette.white,
+                ),
               ).only(bottom: 4.h),
               Row(
                 children: [
