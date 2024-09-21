@@ -31,7 +31,7 @@ class WishlistView extends StatelessWidget {
               child: ListView.separated(
                 padding: EdgeInsets.symmetric(vertical: 4.h),
                 separatorBuilder: (context, index) {
-                  return SizedBox(height: 2.h);
+                  return SizedBox(height: 4.h);
                 },
                 itemCount: 10,
                 itemBuilder: (context, index) {

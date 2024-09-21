@@ -34,7 +34,7 @@ class WishItem extends StatelessWidget {
                   ),
                   Texts.bold(
                     '\$100.00 USD',
-                  )
+                  ),
                 ],
               ).only(bottom: 1.h, top: 2.h),
               Row(
@@ -46,11 +46,9 @@ class WishItem extends StatelessWidget {
                     color: Palette.gray,
                     fontSize: 13,
                   ),
-                  IconButton(
-                    visualDensity: VisualDensity.compact,
-                    padding: EdgeInsets.zero,
-                    onPressed: () {},
-                    icon: Icon(
+                  GestureDetector(
+                    onTap: () {},
+                    child: Icon(
                       IconlyBold.heart,
                       color: Palette.red,
                     ),
