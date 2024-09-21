@@ -60,7 +60,7 @@ class LoginView extends StatelessWidget {
               ).only(bottom: 2.h),
               CustomButton(
                 onPressed: () {
-                  context.go("/home");
+                  context.go("/root");
                 },
                 child: Texts.medium(
                   "Login",
