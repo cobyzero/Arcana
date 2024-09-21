@@ -17,7 +17,7 @@ class CustomCollection extends StatelessWidget {
             Expanded(
               flex: 3,
               child: AspectRatio(
-                aspectRatio: 6 / 6.3,
+                aspectRatio: 1.1,
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.sp),
@@ -34,7 +34,7 @@ class CustomCollection extends StatelessWidget {
               child: Column(
                 children: [
                   AspectRatio(
-                    aspectRatio: 6 / 5,
+                    aspectRatio: 1.5,
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.sp),
@@ -48,7 +48,7 @@ class CustomCollection extends StatelessWidget {
                   Stack(
                     children: [
                       AspectRatio(
-                        aspectRatio: 8 / 5,
+                        aspectRatio: 1.7,
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.sp),
@@ -157,7 +157,7 @@ class CustomCollection extends StatelessWidget {
               ).only(left: 2.w),
             ),
           ],
-        )
+        ),
       ],
     ).symmetric(horizontal: 5.w);
   }
