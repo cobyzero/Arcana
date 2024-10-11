@@ -1,7 +1,9 @@
 import 'package:app_ui/app_ui.dart';
+import 'package:arcana_app/core/router/route_name.dart';
 import 'package:arcana_app/features/cart/widgets/cart_item.dart';
 import 'package:easy_padding/extentions/padding_extentions.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
 
 class CartView extends StatelessWidget {
@@ -38,10 +40,12 @@ class CartView extends StatelessWidget {
               ],
             ).only(bottom: 3.h),
             CustomButton(
-              onPressed: () {},
-              child: Texts.bold(
+              height: 6.h,
+              onPressed: () {
+                context.go(RouteName.proccess);
+              },
+              child: Texts.medium(
                 'Checkout',
-                fontSize: 18,
                 color: Palette.white,
               ),
             ),
@@ -56,10 +60,10 @@ class CartView extends StatelessWidget {
               'Your Cart',
               fontSize: 18,
               color: Palette.primary,
-            ).only(top: 2.h, bottom: 1.h),
+            ).only(top: 2.h, bottom: 2.h),
             Expanded(
               child: ListView.separated(
-                padding: EdgeInsets.symmetric(vertical: 3.h),
+                padding: EdgeInsets.symmetric(vertical: 2.h),
                 separatorBuilder: (context, index) {
                   return SizedBox(height: 2.h);
                 },

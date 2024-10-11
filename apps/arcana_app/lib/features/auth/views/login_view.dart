@@ -1,4 +1,5 @@
 import 'package:app_ui/app_ui.dart';
+import 'package:arcana_app/core/router/route_name.dart';
 import 'package:easy_padding/extentions/padding_extentions.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -59,8 +60,9 @@ class LoginView extends StatelessWidget {
                 ),
               ).only(bottom: 2.h),
               CustomButton(
+                height: 6.h,
                 onPressed: () {
-                  context.go("/root");
+                  context.go(RouteName.root);
                 },
                 child: Texts.medium(
                   "Login",
@@ -103,7 +105,7 @@ class LoginView extends StatelessWidget {
                   Text("Don't have an account?"),
                   TextButton(
                     onPressed: () {
-                      context.go("/register");
+                      context.go(RouteName.register);
                     },
                     child: Texts.bold(
                       "Register",

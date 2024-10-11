@@ -1,4 +1,5 @@
 import 'package:app_ui/app_ui.dart';
+import 'package:arcana_app/core/router/route_name.dart';
 import 'package:arcana_app/features/home/widgets/home_banners.dart';
 import 'package:easy_padding/extentions/padding_extentions.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,7 @@ class HomeView extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        context.go("/root/category");
+                        context.go(RouteName.category);
                       },
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
@@ -80,7 +81,7 @@ class HomeView extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        context.go("/root/product");
+                        context.go(RouteName.product);
                       },
                       child: CustomOffer(
                         image: Assets.images.trending.path,

@@ -1,6 +1,8 @@
 import 'package:app_ui/app_ui.dart';
 import 'package:arcana_app/features/cart/view/cart_view.dart';
 import 'package:arcana_app/features/home/views/home_view.dart';
+import 'package:arcana_app/features/profile/views/profile_view.dart';
+import 'package:arcana_app/features/search/views/search_view.dart';
 import 'package:arcana_app/features/wishlist/views/wishlist_view.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
@@ -106,10 +108,10 @@ class _RootViewState extends State<RootView> {
         controller: pageController,
         children: [
           HomeView(),
-          Container(),
+          SearchView(),
           WishlistView(),
           CartView(),
-          Container(),
+          ProfileView(),
         ],
       ),
     );

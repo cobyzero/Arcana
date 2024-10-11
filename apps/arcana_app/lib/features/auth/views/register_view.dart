@@ -1,4 +1,5 @@
 import 'package:app_ui/app_ui.dart';
+import 'package:arcana_app/core/router/route_name.dart';
 import 'package:easy_padding/extentions/padding_extentions.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -46,6 +47,7 @@ class RegisterView extends StatelessWidget {
                 hintText: "Confirm Password",
               ).only(bottom: 2.h),
               CustomButton(
+                height: 6.h,
                 onPressed: () {},
                 child: Texts.medium(
                   "Register",
@@ -88,7 +90,7 @@ class RegisterView extends StatelessWidget {
                   Text("Already have an account?"),
                   TextButton(
                     onPressed: () {
-                      context.go("/login");
+                      context.go(RouteName.login);
                     },
                     child: Texts.bold(
                       "Login",

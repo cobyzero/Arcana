@@ -11,10 +11,10 @@ class WishlistView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: CustomButton(
+        height: 6.h,
         onPressed: () {},
-        child: Texts.bold(
+        child: Texts.medium(
           'Add all to cart',
-          fontSize: 18,
           color: Palette.white,
         ),
       ).symmetric(horizontal: 5.w).only(bottom: 2.h, top: .5.h),
@@ -26,10 +26,10 @@ class WishlistView extends StatelessWidget {
               'Wishlist',
               fontSize: 18,
               color: Palette.primary,
-            ).only(top: 2.h),
+            ).only(top: 2.h, bottom: 2.h),
             Expanded(
               child: ListView.separated(
-                padding: EdgeInsets.symmetric(vertical: 4.h),
+                padding: EdgeInsets.symmetric(vertical: 2.h),
                 separatorBuilder: (context, index) {
                   return SizedBox(height: 4.h);
                 },

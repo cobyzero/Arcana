@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_gen: ^5.7.0
+  iconly: ^1.0.1
   sizer: ^3.0.3
 
 dev_dependencies:
