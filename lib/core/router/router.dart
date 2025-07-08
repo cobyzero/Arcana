@@ -1,11 +1,11 @@
 import 'package:arcana_app/core/router/route_name.dart';
-import 'package:arcana_app/features/auth/views/login_view.dart';
-import 'package:arcana_app/features/auth/views/register_view.dart';
-import 'package:arcana_app/features/cart/view/proccess_view.dart';
-import 'package:arcana_app/features/category/views/category_view.dart';
-import 'package:arcana_app/features/product/views/produc_view.dart';
-import 'package:arcana_app/features/profile/views/pages/address_page.dart';
-import 'package:arcana_app/features/root/views/root_view.dart';
+import 'package:arcana_app/ui/views/auth/views/login_view.dart';
+import 'package:arcana_app/ui/views/auth/views/register_view.dart';
+import 'package:arcana_app/ui/views/cart/view/proccess_view.dart';
+import 'package:arcana_app/ui/views/category/views/category_view.dart';
+import 'package:arcana_app/ui/views/product/views/produc_view.dart';
+import 'package:arcana_app/ui/views/profile/views/pages/address_page.dart';
+import 'package:arcana_app/ui/views/root/views/root_view.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(

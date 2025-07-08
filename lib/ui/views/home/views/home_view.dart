@@ -1,0 +1,137 @@
+import 'package:arcana_app/core/generated/generated.dart';
+import 'package:arcana_app/core/utils/utils.dart';
+import 'package:arcana_app/core/router/route_name.dart';
+import 'package:arcana_app/ui/views/home/widgets/home_banners.dart';
+import 'package:arcana_app/ui/widgets/widgets.dart';
+import 'package:easy_padding/extentions/padding_extentions.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:sizer/sizer.dart';
+
+class HomeView extends StatelessWidget {
+  const HomeView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                CircleAvatar(
+                  radius: 17.sp,
+                  backgroundImage: Assets.images.person.provider(),
+                ).only(right: 4.w),
+                const Texts.medium(
+                  "Anna Doe",
+                ),
+                const Spacer(),
+                Icon(
+                  Icons.search,
+                  size: 21.sp,
+                ),
+              ],
+            ).symmetric(horizontal: 5.w, vertical: 2.h),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 8.h,
+                      child: ListView.builder(
+                        padding: EdgeInsets.only(left: 5.w),
+                        itemCount: 10,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              context.go(RouteName.category);
+                            },
+                            child: Column(
+                              children: [
+                                CircleAvatar(
+                                  backgroundImage:
+                                      Assets.images.person.provider(),
+                                ).only(bottom: 1.h),
+                                const Texts.regular(
+                                  "Men",
+                                  fontSize: 13,
+                                ),
+                              ],
+                            ).only(right: 3.w),
+                          );
+                        },
+                      ),
+                    ).only(bottom: 3.h),
+                    HomeBanners(
+                      banners: Assets.images.values
+                          .map(
+                            (e) => e.path,
+                          )
+                          .toList(),
+                    ).only(bottom: 3.h),
+                    Texts.medium(
+                      "Trending Offers",
+                    ).only(bottom: 2.h, left: 5.w),
+                    SizedBox(
+                      height: 25.h,
+                      width: double.infinity,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        padding: EdgeInsets.only(left: 5.w),
+                        itemCount: 10,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              context.go(RouteName.product);
+                            },
+                            child: CustomOffer(
+                              image: Assets.images.trending.path,
+                              brand: "Nike",
+                              text: "Min 30% Off",
+                            ).only(right: 3.w),
+                          );
+                        },
+                      ),
+                    ).only(bottom: 3.h),
+                    Texts.medium(
+                      "Deals Of The Day",
+                    ).only(bottom: 2.h, left: 5.w),
+                    SizedBox(
+                      height: 50.h,
+                      width: double.infinity,
+                      child: GridView.builder(
+                        padding: EdgeInsets.only(left: 5.w),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 1.h,
+                          mainAxisSpacing: 10.w,
+                          childAspectRatio: 4 / 3,
+                        ),
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 4,
+                        itemBuilder: (context, index) {
+                          return CustomOffer(
+                            image: Assets.images.trending.path,
+                            brand: "Nike",
+                            text: "S/. 24.40",
+                          );
+                        },
+                      ),
+                    ).only(bottom: 3.h),
+                    Texts.medium(
+                      "Our Collection",
+                    ).only(bottom: 2.h, left: 5.w),
+                    CustomCollection(),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

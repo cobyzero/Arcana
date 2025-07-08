@@ -1,4 +1,4 @@
-import 'package:app_ui/app_ui.dart';
+import 'package:arcana_app/core/generated/fonts.gen.dart';
 import 'package:arcana_app/core/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveSizer(
+    return Sizer(
       builder: (p0, p1, p2) {
         return MaterialApp.router(
           title: 'Material App',
