@@ -7,13 +7,20 @@ class CustomInput extends StatelessWidget {
     super.key,
     required this.hintText,
     required this.prefixIcon,
+    this.controller,
+    this.validator,
+    this.isPassword = false,
   });
   final String hintText;
   final IconData prefixIcon;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
+  final bool isPassword;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: validator,
       cursorColor: Palette.primary,
       decoration: InputDecoration(
         prefixIcon: Icon(
@@ -26,25 +33,27 @@ class CustomInput extends StatelessWidget {
           fontSize: 15.sp,
           color: Palette.gray,
         ),
-        border: OutlineInputBorder(
+        border: const OutlineInputBorder(
           borderSide: BorderSide(
             color: Palette.border,
             width: 1,
           ),
         ),
-        enabledBorder: OutlineInputBorder(
+        enabledBorder: const OutlineInputBorder(
           borderSide: BorderSide(
             color: Palette.border,
             width: 1,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderSide: BorderSide(
             color: Palette.primary,
             width: 1,
           ),
         ),
       ),
+      controller: controller,
+      obscureText: isPassword,
     );
   }
 }

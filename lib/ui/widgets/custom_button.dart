@@ -11,6 +11,7 @@ class CustomButton extends StatelessWidget {
     this.borderSide,
     this.height,
     this.width,
+    this.enable = true,
   });
   final Function() onPressed;
   final Widget child;
@@ -18,10 +19,11 @@ class CustomButton extends StatelessWidget {
   final BorderSide? borderSide;
   final double? height;
   final double? width;
+  final bool enable;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: onPressed,
+      onPressed: enable ? onPressed : null,
       style: ElevatedButton.styleFrom(
         shadowColor: backgroundColor ?? Palette.primary,
         backgroundColor: backgroundColor ?? Palette.primary,
