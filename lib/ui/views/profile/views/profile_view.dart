@@ -1,9 +1,11 @@
 import 'package:arcana_app/core/generated/generated.dart';
+import 'package:arcana_app/app/blocs/auth_bloc/auth_bloc.dart';
 import 'package:arcana_app/core/utils/utils.dart';
 import 'package:arcana_app/core/router/route_name.dart';
 import 'package:arcana_app/ui/views/profile/widgets/profile_item.dart';
 import 'package:easy_padding/extentions/padding_extentions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
 import 'package:sizer/sizer.dart';
@@ -62,14 +64,17 @@ class ProfileView extends StatelessWidget {
               icon: IconlyLight.document,
               onTap: () {},
             ),
-            Spacer(),
+            const Spacer(),
             ListTile(
-              onTap: () {},
-              title: Texts.regular(
+              onTap: () {
+                context.read<AuthBloc>().add(AuthLogoutEvent());
+                context.go(RouteName.login);
+              },
+              title: const Texts.regular(
                 'Logout',
                 color: Palette.red,
               ),
-              leading: Icon(
+              leading: const Icon(
                 IconlyLight.logout,
                 color: Palette.red,
               ),

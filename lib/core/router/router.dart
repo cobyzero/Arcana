@@ -6,10 +6,12 @@ import 'package:arcana_app/ui/views/category/views/category_view.dart';
 import 'package:arcana_app/ui/views/product/views/produc_view.dart';
 import 'package:arcana_app/ui/views/profile/views/pages/address_page.dart';
 import 'package:arcana_app/ui/views/root/views/root_view.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
-  initialLocation: RouteName.login,
+  initialLocation:
+      GetStorage().read('token') != null ? RouteName.root : RouteName.login,
   routes: [
     GoRoute(
       path: RouteName.login,

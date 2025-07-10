@@ -22,4 +22,23 @@ class AuthService {
       rethrow;
     }
   }
+
+  Future<ResponseModel> register({
+    required String name,
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final response = await dio.post('auth/register', data: {
+        'name': name,
+        'email': email,
+        'password': password,
+      });
+
+      final data = response.data;
+      return ResponseModel.fromJson(data);
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

@@ -19,4 +19,22 @@ class AuthRepository implements AuthIRepository {
       rethrow;
     }
   }
+
+  @override
+  Future<ResponseModel> register({
+    required String name,
+    required String email,
+    required String password,
+  }) {
+    try {
+      final response = authService.register(
+        name: name,
+        email: email,
+        password: password,
+      );
+      return response;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
