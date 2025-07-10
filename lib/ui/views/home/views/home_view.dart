@@ -1,10 +1,16 @@
+import 'package:arcana_app/app/blocs/banner_bloc/banner_bloc.dart';
+import 'package:arcana_app/app/blocs/category_bloc/category_bloc.dart';
 import 'package:arcana_app/core/generated/generated.dart';
 import 'package:arcana_app/core/utils/utils.dart';
 import 'package:arcana_app/core/router/route_name.dart';
 import 'package:arcana_app/ui/views/home/widgets/home_banners.dart';
+import 'package:arcana_app/ui/views/home/widgets/home_categories.dart';
+import 'package:arcana_app/ui/widgets/Skeleton/home_banners_skeleton.dart';
+import 'package:arcana_app/ui/widgets/Skeleton/home_categories_skeleton.dart';
 import 'package:arcana_app/ui/widgets/widgets.dart';
 import 'package:easy_padding/extentions/padding_extentions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
 
@@ -17,62 +23,61 @@ class HomeView extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Row(
-              children: [
-                CircleAvatar(
-                  radius: 17.sp,
-                  backgroundImage: Assets.images.person.provider(),
-                ).only(right: 4.w),
-                const Texts.medium(
-                  "Anna Doe",
-                ),
-                const Spacer(),
-                Icon(
-                  Icons.search,
-                  size: 21.sp,
-                ),
-              ],
-            ).symmetric(horizontal: 5.w, vertical: 2.h),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10.sp),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(.1),
+                    blurRadius: 5,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 17.sp,
+                    backgroundImage: Assets.images.person.provider(),
+                  ).only(right: 4.w),
+                  const Texts.medium(
+                    "Anna Doe",
+                  ),
+                  const Spacer(),
+                  Icon(
+                    Icons.search,
+                    size: 21.sp,
+                  ),
+                ],
+              ).symmetric(horizontal: 5.w, vertical: 2.h),
+            ),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      height: 8.h,
-                      child: ListView.builder(
-                        padding: EdgeInsets.only(left: 5.w),
-                        itemCount: 10,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return GestureDetector(
-                            onTap: () {
-                              context.go(RouteName.category);
-                            },
-                            child: Column(
-                              children: [
-                                CircleAvatar(
-                                  backgroundImage:
-                                      Assets.images.person.provider(),
-                                ).only(bottom: 1.h),
-                                const Texts.regular(
-                                  "Men",
-                                  fontSize: 13,
-                                ),
-                              ],
-                            ).only(right: 3.w),
+                    BlocBuilder<CategoryBloc, CategoryState>(
+                      builder: (context, state) {
+                        if (state is CategoryLoaded) {
+                          return HomeCategories(
+                            categories: state.categories,
                           );
-                        },
-                      ),
+                        }
+                        return const HomeCategoriesSkeleton();
+                      },
+                    ).symmetric(vertical: 2.h),
+                    BlocBuilder<BannerBloc, BannerState>(
+                      builder: (context, state) {
+                        if (state is BannerLoaded) {
+                          return HomeBanners(
+                            banners: state.banners,
+                          );
+                        }
+                        return const HomeBannersSkeleton();
+                      },
                     ).only(bottom: 3.h),
-                    HomeBanners(
-                      banners: Assets.images.values
-                          .map(
-                            (e) => e.path,
-                          )
-                          .toList(),
-                    ).only(bottom: 3.h),
-                    Texts.medium(
+                    const Texts.medium(
                       "Trending Offers",
                     ).only(bottom: 2.h, left: 5.w),
                     SizedBox(

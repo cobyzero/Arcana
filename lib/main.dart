@@ -1,7 +1,11 @@
 import 'package:arcana_app/app/blocs/auth_bloc/auth_bloc.dart';
+import 'package:arcana_app/app/blocs/banner_bloc/banner_bloc.dart';
+import 'package:arcana_app/app/blocs/category_bloc/category_bloc.dart';
 import 'package:arcana_app/core/generated/fonts.gen.dart';
 import 'package:arcana_app/core/router/router.dart';
 import 'package:arcana_app/domain/repositories/auth_irepository.dart';
+import 'package:arcana_app/domain/repositories/banner_irepository.dart';
+import 'package:arcana_app/domain/repositories/category_irepository.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,6 +28,18 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => AuthBloc(getIt.get<AuthIRepository>()),
+        ),
+        BlocProvider(
+          create: (context) => CategoryBloc(getIt.get<CategoryIRepository>())
+            ..add(
+              CategoryGetCategoriesEvent(),
+            ),
+        ),
+        BlocProvider(
+          create: (context) => BannerBloc(getIt.get<BannerIRepository>())
+            ..add(
+              BannerGetBannersEvent(),
+            ),
         ),
       ],
       child: Sizer(
